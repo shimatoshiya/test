@@ -28,10 +28,12 @@ while w < x:
 else:
     print("end x")
 
+#íœ
 #’†S“_‚ð‹‚ß‚é
-y,x = img.shape
-cx = x//2
-cy = y//2
+#y,x = img.shape
+#cx = x//2
+#cy = y//2
+
 #’†S‚©‚ç‚Ì‘ÎŠpü’·
 diagonalSize = np.sqrt(cy**2 + cx**2)
 
