@@ -15,7 +15,7 @@ while w < x:
         if y < h :
             break
         
-        #ƒ†[ƒNƒŠƒbƒh‹——£Zo
+        #ãƒ¦ãƒ¼ã‚¯ãƒªãƒƒãƒ‰è·é›¢ç®—å‡º
         b = np.array([wcx, hcy])
         l = np.linalg.norm(b-a)
         eDlist.append(l)
@@ -28,19 +28,21 @@ while w < x:
 else:
     print("end x")
 
-#’†S“_‚ğ‹‚ß‚é
-y,x = img.shape
-cx = x//2
-cy = y//2
-#’†S‚©‚ç‚Ì‘ÎŠpü’·
+#å‰Šé™¤ãã‚‚ãã‚‚å‹•ãã¾ã™ã‹ã€ã“ã‚Œï¼Ÿ
+#ä¸­å¿ƒç‚¹ã‚’æ±‚ã‚ã‚‹
+#y,x = img.shape
+#cx = x//2
+#cy = y//2
+
+#ä¸­å¿ƒã‹ã‚‰ã®å¯¾è§’ç·šé•·
 diagonalSize = np.sqrt(cy**2 + cx**2)
 
-# ƒ†[ƒNƒŠƒbƒh‹——£,rawƒf[ƒ^@Euclidean distance
+# ãƒ¦ãƒ¼ã‚¯ãƒªãƒƒãƒ‰è·é›¢,rawãƒ‡ãƒ¼ã‚¿ã€€Euclidean distance
 eDlist = []
 
 const = 100
         
-#for‚ªg‚¢‚É‚­‚¢BBB
+#forãŒä½¿ã„ã«ãã„ã€‚ã€‚ã€‚
 for w in range(cx):
     wcx = cx + w * const
     if wcx >= x :
@@ -49,17 +51,17 @@ for w in range(cx):
         hcy = cy + h * const
         if hcy >= y :
             break
-        #ƒ†[ƒNƒŠƒbƒh‹——£Zo
+        #ãƒ¦ãƒ¼ã‚¯ãƒªãƒƒãƒ‰è·é›¢ç®—å‡º
         a = np.array([cx, cy])
         b = np.array([wcx, hcy])
         l = np.linalg.norm(b-a)
         #eDlist.append([float(l)/float(diagonalSize),float(img[hcy][wcx])])
         eDlist.append([float(l)/float(diagonalSize),float(img[hcy][wcx])/img[cy][cx]])
 
-# s—ñX‚Ìì¬
+# è¡Œåˆ—Xã®ä½œæˆ
 #X = np.column_stack(np.repeat(1, len(rawlist), numpy.array(rawlist), numpy.array(rawlist)**2)
 
-#ƒ\[ƒg
+#ã‚½ãƒ¼ãƒˆ
 eDlist.sort(key=lambda x:x[0])
 i = 0
 xList = []
@@ -68,7 +70,7 @@ for i in range(len(eDlist)-1) :
     xList.append(eDlist[i][0])
     yList.append(eDlist[i][1])
 
-# s—ñX‚Ìì¬
+# è¡Œåˆ—Xã®ä½œæˆ
 #X = np.column_stack(np.repeat(1, len(xList)))
 
 plt.figure() 
@@ -88,10 +90,10 @@ for x in np.array(xList):
     Px2.append(a * x**3 + b * x**2 + c * x + d) 
 plt.plot(np.array(Px2),np.array(xList))
 
-#‰ñ‹A‹Èü
+#å›å¸°æ›²ç·š
 #model = sm.OLS(np.array(yList),np.array(xList))
 #results = model.fit()
-# Œ‹‰Ê‚ÌŠT—v‚ğ•\¦
+# çµæœã®æ¦‚è¦ã‚’è¡¨ç¤º
 #print(results.summary())
 #a,b= results.params
 #plt.plot(np.array(rawlist), a*np.array(rawlist))
